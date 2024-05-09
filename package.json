@@ -1,0 +1,59 @@
+{
+  "name": "tommy",
+  "publisher": "valentin-thomas",
+  "displayName": "Tommy Friend",
+  "description": "Tommy, the friend that help you to make simple things",
+  "version": "0.1.0",
+  "main": "./dist/extension.js",
+  "icon": "./assets/logo.png",
+  "scripts": {
+    "build": "bun ./scripts/build.ts",
+    "prepare": "bun ./scripts/prepublish.ts",
+    "new-version": "bun ./scripts/full.ts"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/node": "^20.12.10",
+    "@types/vscode": "^1.89.0",
+    "@vscode/vsce": "^2.26.1",
+    "esbuild": "^0.21.1",
+    "vscode": "^1.1.37"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "engines": {
+    "vscode": "^1.89.0"
+  },
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "tommy.barrelize",
+        "title": "Barrelize folder"
+      },
+      {
+        "command": "tommy.git-ignore",
+        "title": "Add to gitignore"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "tommy.barrelize",
+          "when": "explorerResourceIsFolder",
+          "group": "tommy_actions@10"
+        },
+        {
+          "command": "tommy.git-ignore",
+          "group": "tommy_actions@20"
+        }
+      ]
+    }
+  },
+  "dependencies": {
+    "ts-pattern": "^5.1.1"
+  }
+}
