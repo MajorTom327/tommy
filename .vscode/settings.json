@@ -1,0 +1,7 @@
+{
+  "files.exclude": {
+    "dist": false,
+    "LICENSE": true,
+    "*.vsix": true
+  }
+}
